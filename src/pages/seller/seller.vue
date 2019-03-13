@@ -110,34 +110,29 @@
         saveToLocal(this.sellerProp.id, 'favorite', this.favorite);
       },
       _initScroll() {
-          this.scroll = new BScroll(this.$refs.seller, {})
+          new BScroll(this.$refs.seller, {click:true})
       },
-      // _initPics() {
-      //   if (this.sellerProp.pics) {
-      //     let picWidth = 120;
-      //     let margin = 6;
-      //     let width = (picWidth + margin) * this.sellerProp.pics.length - margin;
-      //     this.$refs.picList.style.width = width + 'px';
-      //     this.$nextTick(() => {
-      //       if (!this.picScroll) {
-      //         this.picScroll = new BScroll(this.$refs.picWrapper, {
-      //           scrollX: true,
-      //           eventPassthrough: 'vertical'
-      //         });
-      //       } else {
-      //         this.picScroll.refresh();
-      //       }
-      //     });
-      //   }
-      // }
+      _initPics() {
+        if (this.sellerProp.pics) {
+          let picWidth = 120;
+          let margin = 6;
+          let width = (picWidth + margin) * this.sellerProp.pics.length - margin;
+          this.$refs['pic-list'].style.width = width + 'px';
+          this.$nextTick(() => {
+            new BScroll(this.$refs['pic-wrapper'], {
+              scrollX: true,
+              eventPassthrough: 'vertical'
+            });
+        });
+        }
+      }
     },
     created() {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-
     },
     mounted(){
       this._initScroll();
-      // this._initPics();
+      this._initPics();
     }
   }
 </script>

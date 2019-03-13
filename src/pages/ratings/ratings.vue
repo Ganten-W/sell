@@ -123,8 +123,10 @@
       }
     },
     methods:{
-      initScroll(){
-        this.myscroll = new BScroll(this.$refs.ratings,{click:true})
+      _initScroll(){
+        this.$nextTick(()=>{
+          new BScroll(this.$refs.ratings,{click:true})
+        })
       },
       select(type, event) {
         if (!event._constructed) {
@@ -156,7 +158,7 @@
       }
     },
     mounted(){
-      this.initScroll()
+      this._initScroll()
     },
   }
 </script>
