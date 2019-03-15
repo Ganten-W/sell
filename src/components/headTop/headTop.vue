@@ -359,7 +359,7 @@
     .fade-enter-active,.fade-leave-active{
       transition:all .5s ease;
     }
-    .fade-enter-active{
+    .fade-enter-to{
       opacity: 1;
       background-color: rgba(7,17,27,0.8);
     }
